@@ -39,7 +39,7 @@ def merge_nMap(xmlFile,mf):
 def addHeader(f):
 	nMap_Header  = '<?xml version="1.0" encoding="UTF-8"?>'
 	nMap_Header += '<!DOCTYPE nmaprun>'
-	nMap_Header += '<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>'
+	nMap_Header += '<?xml-stylesheet href="https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl" type="text/xsl"?>'
 	nMap_Header += '<!-- Nmap Merged with nMapMergER.py https://github.com/CBHue/nMapMergER -->'
 	nMap_Header += '<nmaprun scanner="nmap" args="nmap -iL hostList.txt" start="1" startstr="https://github.com/CBHue/nMapMerge/nMapMerge.py" version="7.70" xmloutputversion="1.04">'
 	nMap_Header += '<scaninfo type="syn" protocol="tcp" numservices="1" services="1"/>'
