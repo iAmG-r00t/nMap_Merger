@@ -77,9 +77,9 @@ def htmlER(mergeFile):
 # nmapSET.add('/nmap-Dir/nmap_10.10.10.10.xml')
 #
 # Then call the main function passing the set:
-# main_nMapMerger(nmapSET)
+# main_nMapMerger(nmapSET, mergeFile)
 #
-def main_nMapMerger(xmlSet):
+def main_nMapMerger(xmlSet, mergeFile):
 	HOSTS = 0
 
 	# Check to ensute we have work to do
@@ -88,11 +88,11 @@ def main_nMapMerger(xmlSet):
 		exit()
 
 	# Create the Merged filename
-	from datetime import datetime
-	dtNow = datetime.now() 
-	dt = re.sub(r"\s+", '-', str(dtNow))
-	dt = re.sub(r":", '-', str(dt))
-	mergeFile = "nMap_Merged_" + dt + ".xml"
+	# from datetime import datetime
+	# dtNow = datetime.now() 
+	# dt = re.sub(r"\s+", '-', str(dtNow))
+	# dt = re.sub(r":", '-', str(dt))
+	#mergeFile = "nMap_Merged_" + dt + ".xml"
 
 	# Add Header to mergefile
 	addHeader(mergeFile)
@@ -109,7 +109,9 @@ def main_nMapMerger(xmlSet):
 	print ("Output XML File:", os.path.abspath(mergeFile))
 
 	# Convert merged XML to html
-	htmlER(mergeFile)
+	
+	# no need since we use bootstrap style for XML in-browser view!
+	# htmlER(mergeFile)
 
 if __name__ == "__main__":
 	
@@ -122,6 +124,7 @@ if __name__ == "__main__":
 	parser.add_argument("-f", "--file", 	dest="filename", help="parse FILE", metavar="FILE")
 	parser.add_argument("-d", "--dir", 		dest="directory", help="Parse all xml in directory", metavar="DIR")
 	parser.add_argument("-q", "--quiet",	dest="verbose",	action="store_false", default=True, help="don't print status messages to stdout")
+	parser.add_argument("-t", "--target",	dest="verbose",	default='nmapMerged.xml', help="output filename")
 	args = parser.parse_args()
 
 	s = set()
@@ -154,4 +157,4 @@ if __name__ == "__main__":
 		exit()
 
 	# Pass set of xml files to main
-	main_nMapMerger(s)
+	main_nMapMerger(s,args.target)
