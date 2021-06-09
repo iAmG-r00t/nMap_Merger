@@ -124,7 +124,7 @@ if __name__ == "__main__":
 	parser.add_argument("-f", "--file", 	dest="filename", help="parse FILE", metavar="FILE")
 	parser.add_argument("-d", "--dir", 		dest="directory", help="Parse all xml in directory", metavar="DIR")
 	parser.add_argument("-q", "--quiet",	dest="verbose",	action="store_false", default=True, help="don't print status messages to stdout")
-	parser.add_argument("-t", "--target",	dest="verbose",	default='nmapMerged.xml', help="output filename")
+	parser.add_argument("-t", "--target",	dest="target",	default='nmapMerged.xml', help="output filename")
 	args = parser.parse_args()
 
 	s = set()
